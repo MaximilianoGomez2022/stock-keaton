@@ -1,5 +1,5 @@
 async function createSesion(hora) {
-    return fetch('http://localhost:2022/api/sesion', {
+    return fetch('https://back-stock-keaton.vercel.app/api/sesion', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -11,7 +11,7 @@ async function createSesion(hora) {
 }
 
 async function find() {
-    return fetch('http://localhost:2022/api/sesion', {
+    return fetch('https://back-stock-keaton.vercel.app/api/sesion', {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
@@ -22,7 +22,7 @@ async function find() {
 }
 
 async function editSesion(id, hora) {
-    return fetch(`http://localhost:2022/api/sesion/${id}`, {
+    return fetch(`https://back-stock-keaton.vercel.app/api/sesion/${id}`, {
         method: 'PATCH',
         headers: {
             'Content-Type': 'application/json',

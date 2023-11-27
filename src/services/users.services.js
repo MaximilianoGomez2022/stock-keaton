@@ -1,5 +1,5 @@
 async function findById(id) {
-    return fetch(`http://localhost:2022/api/users/${id}`, {
+    return fetch(`https://back-stock-keaton.vercel.app/users/${id}`, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
@@ -17,7 +17,7 @@ async function findById(id) {
 }
 
 async function edit(id, user) {
-    return fetch(`http://localhost:2022/api/users/${id}`, {
+    return fetch(`https://back-stock-keaton.vercel.app/users/${id}`, {
         method: 'PATCH',
         headers: {
             'Content-Type': 'application/json',

@@ -1,5 +1,6 @@
 async function login(mail, password) {
     return fetch('https://back-stock-keaton.vercel.app/api/users/login', {
+        mode: 'no-cors',
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'

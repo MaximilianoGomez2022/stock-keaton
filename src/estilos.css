@@ -1,0 +1,594 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+h1, h2, p, td, th, li, a, label, input, p {
+    font-family: 'Montserrat',Arial,sans-serif;
+}
+
+h1 {
+    text-align: center;
+}
+
+header, body, footer {
+    max-width: 1920px;
+    margin: auto;
+}
+
+header {
+    max-width: 1920px;
+    top: 0;
+    right: 0;
+    left: 0;
+    position: fixed;
+    background: #000000;
+    z-index: 5;
+    box-shadow: -1px 3px 5px 0px rgba(105,105,105,0.75);
+    -webkit-box-shadow: -1px 3px 5px 0px rgb(105 105 105 / 75%);
+    -moz-box-shadow: -1px 6px 5px 0px rgba(105,105,105,0.75);
+    height: 76px;
+}
+
+#logo {
+    background: url(../src/assets/logo.svg);
+    width: 230px;
+    height: 102px;
+    background-repeat: no-repeat;
+    font-size: 0px;
+    position: absolute;
+    z-index: 1000;
+    left: calc(50% - 120px);
+    top: 12px
+}
+
+#hamburguesa li:last-child {
+    display: none;
+}
+
+#barra {
+    background: #000000;
+    position: absolute;
+    top: 75px;
+    height: calc(100vh - 4em);
+    left: -100vw;
+    transition: all 500ms;
+    z-index: 10000;
+    position: fixed;
+    padding: 0px 20px;
+    padding-top: 26px;
+    width: 100%;
+}
+
+#barra li {
+    width: 100%;
+    margin: auto;
+    margin-bottom: 1em;
+    list-style: none;
+}
+
+#barra li a {
+    font-weight: bold;
+    background: #000000;
+    padding: 1em;
+    display: block;
+    color: #f8b11e;
+    text-decoration: none;
+}
+
+#barra li a:hover {
+    color: #ffffff;
+}
+
+#hamburguesa li {
+    top: 20px;
+    position: absolute;
+    right: -10px;
+    z-index: 10000px;
+    list-style: none;
+    position: fixed;
+}
+
+#hamburguesa li a {
+    width: 20px;
+    height: 20px;
+    display: block;
+    text-indent: -700px;
+    overflow: hidden;
+    background-size: cover;
+    margin-top: 9px;
+    margin-right: 19px;
+}
+
+.login {
+    padding-top: 7em;
+}
+
+.login form {
+    background-color: #000000;
+    border: 3px solid #000000;
+    width: 90%;
+    margin: auto;
+    border-radius: 4px;
+    padding: 60px 10px;
+}
+
+.login form button {
+    background-color: #f8b11e;
+    color: #000000;
+    margin-top: 25px;
+}
+
+.login form input {
+    background-color: #000000;
+    color: #f8b11e;
+    border-color: #656565 !important;
+}
+
+.titulo-login {
+    text-align: center;
+    color: #f8b11e;
+}
+
+form {
+    border: 3px solid #000000;
+    width: 90%;
+    margin: auto;
+    border-radius: 4px;
+    padding: 20px 10px;
+}
+
+form label {
+    display: block;
+    color: rgb(182, 182, 182);
+    margin-bottom: 5px;
+}
+
+form input {
+    width: 100%;
+}
+
+form textarea {
+    width: 100%;
+    resize: none;
+}
+
+form input {
+    padding: 10px;
+}
+
+form button {
+    background-color: #000000;
+    color: #f8b11e;
+    font-weight: bold;
+    font-size: 1em;
+    padding: 10px;
+    border: 2px solid #000000;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: 550ms;
+    width: 100%;
+}
+
+form button:hover {
+    background-color: #0f0f0f;
+    border: 2px solid #0f0f0f;
+    color: #e8a41c;
+    transition: 550ms;
+}
+
+form input[type="text"], input[type="email"], input[type="password"], textarea {
+    border: 2px solid rgb(30, 30, 30);
+    border-radius: 4px;
+    margin-bottom: 14px;
+}
+
+form input[type="date"] {
+    margin-bottom: 14px;
+}
+
+table {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+th {
+
+    border-collapse: collapse;
+    border: 1px solid black;
+    background-color: #000000;
+    color: #f8b11e;
+    padding: 10px;
+
+}
+
+td {
+    border-collapse: collapse;
+    border: 1px solid black;
+    padding: 10px;
+    text-align: left;
+}
+
+.acciones img {
+    width: 30px;
+    margin-right: 10px;
+    margin-bottom: -5px;
+}
+
+.acciones div {
+    line-height: 0;
+    margin-bottom: 15px;
+}
+
+.acciones a {
+    text-decoration: none;
+    color: #1e1e1e;
+}
+
+.section-tabla {
+    border: 2px solid black;
+    width: 90%;
+    margin: auto;
+}
+
+table {
+    width: 100%;
+}
+
+.section-eliminar h2, p {
+    text-align: center;
+}
+
+.contenedor-home {
+    padding-top: 7em;
+}
+
+.section-agregar {
+    padding-top: 7em;
+}
+
+.section-eliminar {
+    padding-top: 7em;
+}
+
+.section-eliminar form {
+    border: 0
+}
+
+.section-editar {
+    padding-top: 7em;
+}
+
+.section-editar h1 {
+    text-align: center;
+}
+
+body{
+    position: relative;
+    padding-bottom: 120px;
+    min-height: 100vh;
+}
+
+footer {
+    padding: 30px;
+    text-align: center;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background-color: #000000;
+    color: #f8b11e;
+}
+
+#cerrar-sesion {
+    cursor:pointer;
+}
+
+.success {
+    background-color: #0abf64;
+    color: #c2ffc9;
+    position: absolute;
+    top: 85px;
+    padding: 20px;
+    box-shadow: -1px 3px 5px 0px rgba(105,105,105,0.75);
+    -webkit-box-shadow: -1px 3px 5px 0px rgb(105 105 105 / 75%);
+    -moz-box-shadow: -1px 6px 5px 0px rgba(105,105,105,0.75);
+    display: flex;
+    align-items: center;
+    border-radius: 0px 3px 3px 0px;
+}
+
+.success img {
+    width: 40px;
+    display: block;
+    margin-right: 10px;
+}
+
+.success p {
+    color: #c2ffc9;
+}
+
+.error {
+    background-color: #d93030;
+    color: #ffffff;
+    position: absolute;
+    top: 85px;
+    padding: 20px;
+    box-shadow: -1px 3px 5px 0px rgba(105,105,105,0.75);
+    -webkit-box-shadow: -1px 3px 5px 0px rgb(105 105 105 / 75%);
+    -moz-box-shadow: -1px 6px 5px 0px rgba(105,105,105,0.75);
+    display: flex;
+    align-items: center;
+    border-radius: 0px 3px 3px 0px;
+}
+
+.error img {
+    width: 40px;
+    display: block;
+    margin-right: 10px;
+}
+
+.error p {
+    color: #fff;
+}
+
+.errores-login p {
+    color: #f8b11e;
+    margin: 10px 0;
+    text-align: left;
+}
+
+.error {
+    color: #ffffff;
+}
+
+.section-agregar form label {
+    color: #000000;
+    font-weight: 600;
+}
+
+.section-editar form label {
+    color: #000000;
+    font-weight: 600;
+}
+
+.login a {
+    color: #f8b11e;
+    cursor: pointer;
+    margin-bottom: 30px;
+}
+
+@media screen and (max-width: 758px) {
+
+    h1 {
+    margin-bottom: .5em;
+    }
+
+    .success {
+        color: #ffffff;
+        position: absolute;
+        top: 76px;
+        width: 100%;
+        text-align: left;
+        padding: 15px;
+        box-shadow: -1px 3px 5px 0px rgba(105,105,105,0.75);
+        -webkit-box-shadow: -1px 3px 5px 0px rgb(105 105 105 / 75%);
+        -moz-box-shadow: -1px 6px 5px 0px rgba(105,105,105,0.75);
+    }
+
+    .error {
+        color: #ffffff;
+        position: absolute;
+        top: 76px;
+        width: 100%;
+        text-align: left;
+        padding: 15px;
+        box-shadow: -1px 3px 5px 0px rgba(105,105,105,0.75);
+        -webkit-box-shadow: -1px 3px 5px 0px rgb(105 105 105 / 75%);
+        -moz-box-shadow: -1px 6px 5px 0px rgba(105,105,105,0.75);
+    }
+
+    .hambtrue {
+        background: url(../src/assets/abrir-menu.svg) center center;
+    }
+
+    .hambfalse {
+        background: url(../src/assets/cerrar-menu.svg) center center;
+    }
+
+    .barrafalse {
+        background-color: #000000 !important;
+        left: 0vw !important;
+        transition: all 500ms;
+    }
+
+    .barratrue {
+        background-color: #000000 !important;
+        left: -100vw !important;
+        transition: all 500ms;
+    }
+
+    .section-tabla {
+        border: 0px solid black;
+        width: 95%;
+        margin: auto;
+    }
+
+    td {
+        border-collapse: collapse;
+        border: 0px solid black;
+        padding: 10px;
+        text-align: left;
+    }
+
+    table {
+        border: 0px;
+    }
+    table caption {
+        font-size: 22px;
+    }
+    table thead {
+        display: none;
+    }
+    table tr {
+        margin-bottom: 20px;
+        border-bottom: 2px solid #a5a5a5;
+        display: block;
+        box-shadow: -1px 3px 5px 0px rgba(105,105,105,0.75);
+        -webkit-box-shadow: 0px 2px 5px 0px rgb(105 105 105 / 75%);
+        -moz-box-shadow: -1px 6px 5px 0px rgba(105,105,105,0.75);
+    }
+    table th, table td {
+        font-size: 14px;
+    }
+    table td {
+        display: block;
+        border-bottom: 1px solid #ddd;
+        text-align: right;
+    }
+    table  td:last-child {
+        border-bottom: 0px;
+    }
+    table td::before {
+        content: attr(data-label);
+        font-weight: bold;
+        text-transform: uppercase;
+        float: left;
+    }
+
+    .acciones img {
+        width: 20px;
+        margin-right: 10px;
+        margin-bottom: -5px;
+    }
+
+    .acciones div {
+        display: inline;
+        margin-bottom: 15px;
+        margin-left: 20px;
+    }
+
+    
+}
+
+@media (min-width: 1200px) {
+
+    header {
+        height: 82px;
+        display: flex;
+        justify-content: flex-end;
+        z-index: 3;
+        left: 0;
+        padding-right: 5em;
+    }
+
+    header nav {
+    position: relative;
+    background: #a34242;
+    left: 0vw;
+    width: 70%;
+    transition: 0.7s;
+    z-index: 5;
+    height: 100%;
+    flex: 1;
+}
+
+  .logo {
+      padding: 1em 10px;
+      font-size: 0;
+      display: inline-block;
+      height: 69px;
+      left: 2%;
+      flex: 1;
+      margin-left: 5em;
+  }
+
+    #logo {
+        background: url(../src/assets/logo.svg);
+        background-repeat: no-repeat;
+        width: 280px;
+        height: 107px;
+        font-size: 0;
+        position: absolute;
+        z-index: 1000;
+        top: 4px;
+        left: 40px;
+    }
+
+
+    #hamburguesa {
+        display: none;
+    }
+
+    #barra {
+        display: block;
+        height: 69px;
+        padding: 0;
+        left: 0;
+        top: 0;
+        position: relative;
+        width: 100%;
+        background: none;
+        text-align: right;
+    }
+
+    #barra li {
+        display: inline-block;
+        margin: 0;
+        width: max-content;
+    }
+
+
+    #barra li a {
+        font-size: 1.1em;
+        font-weight: bold;
+        margin: 0px;
+        color: #f8b11e;
+        background-color: #000000;
+        transition: all 300ms;
+        float: right;
+        margin-left: 40px;
+        margin-top: 11px;
+        padding: 1em 10px;
+    }
+
+    #barra li a:hover {
+        background: #000000;
+        color: rgb(255, 255, 255);
+        transition: all 300ms;
+    }
+
+    header nav{
+        background: transparent;
+        background: none;
+        z-index: 30000;
+        transition: none;
+
+    }
+
+    .section-agregar form {
+        width: 50%;
+        margin: auto;
+        margin-top: 2em;
+    }
+
+    .login form {
+        width: 30%;
+        padding: 40px 20px;
+        margin: auto;
+        margin-top: 1.1em;
+    }
+
+    .section-eliminar form {
+        width: 40%;
+        margin: auto;
+        margin-top: 1.4em;
+    }
+
+    .section-editar form {
+        width: 40%;
+        margin: auto;
+        margin-top: 1.4em;
+    }
+
+}

@@ -48,7 +48,7 @@ function LoginPage({onLogin}){
                 <h2>Iniciar Sesión</h2>
             </div>
             <div className='errores-login'>
-                {error.map(error =><p>{error}</p>)}
+            {(error || []).map((err, index) => <p key={index}>{err}</p>)}
             </div>
                 <div className='mb-3'>
                 <label className="form-label">E-Mail: </label>

@@ -139,9 +139,10 @@ function App() {
         {isAuthenticate &&<><Success mensaje={"Iniciaste sesión correctamente"}/></>}
         {cerrar &&<><Success mensaje={"Cerraste sesión correctamente"}/></>}
         <Routes>
-            <Route path={'/login'} element={<LoginPage onLogin={onLogin} />}></Route>
-
+            
             <Route path={'/'}  element={<RoutePrivate isAuthenticate={isAuthenticate}><RouteAdmin isAdmin={isAdmin}><HomePage/></RouteAdmin></RoutePrivate>}></Route>
+
+            <Route path={'/login'} element={<LoginPage onLogin={onLogin} />}></Route>
 
             <Route path='/products/new' element={<ProductNewPage/>}></Route>
 

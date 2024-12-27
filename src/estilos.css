@@ -32,7 +32,7 @@ header {
 }
 
 #logo {
-    background: url(../src/assets/logo.svg);
+    background: url(/img/logo.svg);
     width: 230px;
     height: 102px;
     background-repeat: no-repeat;
@@ -389,11 +389,11 @@ footer {
     }
 
     .hambtrue {
-        background: url(../src/assets/abrir-menu.svg) center center;
+        background: url(/img/abrir-menu.svg) center center;
     }
 
     .hambfalse {
-        background: url(../src/assets/cerrar-menu.svg) center center;
+        background: url(/img/cerrar-menu.svg) center center;
     }
 
     .barrafalse {
@@ -504,7 +504,7 @@ footer {
   }
 
     #logo {
-        background: url(../src/assets/logo.svg);
+        background: url(/img/logo.svg);
         background-repeat: no-repeat;
         width: 280px;
         height: 107px;

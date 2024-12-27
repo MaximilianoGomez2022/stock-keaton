@@ -13,7 +13,7 @@ function Error({mensaje}) {
         };
       }, []);
 
-    return isVisible ? <div className="error"><img src="../src/assets/error.svg"></img><p>{mensaje}</p></div> : null
+    return isVisible ? <div className="error"><img src="/img/error.svg"></img><p>{mensaje}</p></div> : null
 }
 
 export default Error

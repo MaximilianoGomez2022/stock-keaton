@@ -14,7 +14,7 @@ function Success({mensaje}) {
         };
       }, []);
 
-    return isVisible ? <div className="success"><img src="../src/assets/success.svg"></img><p>{mensaje}</p></div> : null
+    return isVisible ? <div className="success"><img src="/img/success.svg"></img><p>{mensaje}</p></div> : null
 
 }
 

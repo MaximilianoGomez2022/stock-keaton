@@ -72,10 +72,10 @@ function HomePage() {
                   <td data-label="Ultima Descarga">{ultimaDescarga}</td>
                   <td data-label="Acciones" className="acciones">
                   <div>
-                     <Link to={`/products/${_id}/edit`}><img src="../../src/assets/editar.svg"></img>Editar</Link>
+                     <Link to={`/products/${_id}/edit`}><img src="/img/editar.svg"></img>Editar</Link>
                   </div>
                   <div>
-                     <Link to={`/products/${_id}/delete`}><img src="../../src/assets/eliminar.svg"></img>Eliminar</Link>
+                     <Link to={`/products/${_id}/delete`}><img src="/img/eliminar.svg"></img>Eliminar</Link>
                   </div>                   
                   </td></tr> )}
                </tbody>

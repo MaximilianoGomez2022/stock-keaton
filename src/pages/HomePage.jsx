@@ -64,20 +64,34 @@ function HomePage() {
                   </tr>
                </thead>
                <tbody>      
-                  {productos.map(({_id, nombre, cantidad,porciones,  ultimaDescarga}) =>
-                  <tr key={_id}>   
-                  <td data-label="Nombre">{nombre}</td>
-                  <td data-label="Cantidad">{cantidad}</td>
-                  <td data-label="Porciones">{porciones}</td>
-                  <td data-label="Ultima Descarga">{ultimaDescarga}</td>
-                  <td data-label="Acciones" className="acciones">
-                  <div>
-                     <Link to={`/products/${_id}/edit`}><img src="/img/editar.svg"></img>Editar</Link>
-                  </div>
-                  <div>
-                     <Link to={`/products/${_id}/delete`}><img src="/img/eliminar.svg"></img>Eliminar</Link>
-                  </div>                   
-                  </td></tr> )}
+               {Array.isArray(productos) ? (
+               productos.map(({ _id, nombre, cantidad, porciones, ultimaDescarga }) => (
+                  <tr key={_id}>
+                     <td data-label="Nombre">{nombre}</td>
+                     <td data-label="Cantidad">{cantidad}</td>
+                     <td data-label="Porciones">{porciones}</td>
+                     <td data-label="Ultima Descarga">{ultimaDescarga}</td>
+                     <td data-label="Acciones" className="acciones">
+                     <div>
+                        <Link to={`/products/${_id}/edit`}>
+                           <img src="/img/editar.svg" alt="Editar" />
+                           Editar
+                        </Link>
+                     </div>
+                     <div>
+                        <Link to={`/products/${_id}/delete`}>
+                           <img src="/img/eliminar.svg" alt="Eliminar" />
+                           Eliminar
+                        </Link>
+                     </div>
+                     </td>
+                  </tr>
+               ))
+               ) : (
+               <tr>
+                  <td colSpan="5">No hay productos disponibles</td>
+               </tr>
+               )}
                </tbody>
             </table>
             </section>

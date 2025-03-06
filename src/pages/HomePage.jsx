@@ -18,26 +18,38 @@ function HomePage() {
    useEffect(()=>{
       ProductosServices.find()
       .then(data => {
-          setProductos(data)
-          setHistorial(data)
-          console.log(data)
-      })
-  }, [])
+         if (Array.isArray(data)) {
+           setProductos(data);
+           setHistorial(data);
+         } else {
+           console.error("Error: la API no devolvió un array", data);
+           setProductos([]); // Evita errores con .map()
+         }
+       })
+       .catch(err => {
+         console.error("Error en ProductosServices.find():", err);
+         setProductos([]); // Evita errores con .map()
+       });
+   }, []);
 
-  useEffect(()=>{
-   SesionServices.find()
-   .then(data => {
-       setSesion(data)
-       {data.map((sesion)=>{
-         localStorage.setItem('id', sesion._id)
-       })}
-   })
-}, [])
-
-  function guardar(){
-      ProductosServices.guardarHistorial(historial)
-   }
-
+   useEffect(() => {
+      SesionServices.find()
+        .then(data => {
+          if (Array.isArray(data)) {
+            setSesion(data);
+            data.forEach(sesion => {
+              localStorage.setItem("id", sesion._id);
+            });
+          } else {
+            console.error("Error: la API no devolvió un array", data);
+            setSesion([]); // Evita errores
+          }
+        })
+        .catch(err => {
+          console.error("Error en SesionServices.find():", err);
+          setSesion([]); // Evita errores
+        });
+    }, []);
 
    return ( 
             <div className="contenedor-home">

@@ -2,6 +2,8 @@ import {useState} from 'react'
 import * as authService from '../services/auth.services.js'
 import Error from './Error.jsx'
 
+import { login } from '../services/auth.services.js'
+
 function LoginPage({onLogin}){
     const [mail, setMail] = useState('')
     const [password, setPassword] = useState('')

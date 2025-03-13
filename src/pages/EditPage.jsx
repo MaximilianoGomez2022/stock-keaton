@@ -1,58 +1,75 @@
 import {useEffect, useState} from 'react'
 import {useParams} from 'react-router-dom'
-import * as ProductsServices from '../services/products.services.js'
+import * as PedidosServices from '../services/pedidos.services.js'
 
 import {useNavigate} from 'react-router-dom'
 
 function PeliculasEditPage(){
 
     const {id} = useParams()
-    const [nombre, setNombre] = useState("")
-    const [cantidad, setCantidad] = useState("")
-    const [porciones, setPorciones] = useState("")
-    const [ultimaDescarga, setUltimaDescarga] = useState(new Date().toISOString().split('T')[0])
-    const navigate = useNavigate()
+    const [productos, setProductos] = useState([])
+    const [fecha, setFecha] = useState("")
+    const navigate = useNavigate();
 
-    function changeName(e){
-        setNombre(e.target.value)
+    useEffect(()=>{
+        PedidosServices.traerPedidoPorId(id)
+        .then( data => {
+            setFecha(data.fecha)
+            setProductos(data.productos)
+            console.log(data)
+        })
+    }, [id])
+
+    function handleProductoChange(index, key, value) {
+        const nuevosProductos = [...productos];
+        nuevosProductos[index][key] = value;
+        setProductos(nuevosProductos);
     }
-    function changeCantidad(e){
-        setCantidad(e.target.value)
-    }
-    function changePorciones(e){
-        setPorciones(e.target.value)
-    }
-    function changeUltimaDescarga(e){
-        setUltimaDescarga(e.target.value)
-    }
+
     function onSubmit(e){
         e.preventDefault()
-        ProductsServices.edit(id, {nombre, cantidad, porciones, ultimaDescarga})
+        PedidosServices.editarPedido(id, {fecha, productos})
         .then((data) => {
             console.log(data)
             navigate("/", { state: { setEdit : true } })         
         })
     }
 
-    return (<div className='section-editar'>
-        <h1>Editar Producto</h1>
-        <form onSubmit={onSubmit}>
-        <div className='mb-3'>
-            <label className="form-label">Nombre</label>
-            <input className="form-control" type="text" name='nombre' onChange={changeName} value={nombre}/>
-        </div>
-            <label className="form-label">Cantidad</label>
-            <input className="form-control" type="text" name='cantidad' onChange={changeCantidad} value={cantidad} />
-            <label className="form-label">Porciones</label>
-            <input className="form-control" type="text" name='porciones' onChange={changePorciones} value={porciones} />
-            <label className="form-label">Ultima Descarga</label>
-            <input className="form-control" type="date" name='ultimaDescarga' onChange={changeUltimaDescarga} value={ultimaDescarga} />
-            <div className='mb-3'>
-            <button className='btn btn-dark w-100'>Editar</button>
-            </div>
-            
+    return (
+      <div className="section-editar">
+        <div className='contenedor-editar-pedido'>
+        <h1>EDITAR PEDIDO DEL {fecha}</h1>
+        <div className='div-form-editar-pedido'>
+        <form onSubmit={onSubmit} className='form-editar-pedido'>
+        {productos.map((producto, index) => (
+                        <div key={index} className="producto-item">
+                            <label>Nombre</label>
+                            <input
+                                className="form-control"
+                                type="text"
+                                value={producto.nombre}
+                                onChange={(e) => handleProductoChange(index, "nombre", e.target.value)}
+                            />
+                            <label>Cantidad</label>
+                            <input
+                                className="form-control"
+                                type="number"
+                                value={producto.cantidad}
+                                onChange={(e) => handleProductoChange(index, "cantidad", e.target.value)}
+                            />
+                        </div>
+                    ))}
+          <div className="mb-3">
+            <button className="btn btn-dark w-100">Editar</button>
+          </div>
         </form>
-    </div> )
+        </div>
+        <div className='pedido-editado'>
+
+        </div>
+        </div>
+      </div>
+    );
 }
 
 export default PeliculasEditPage

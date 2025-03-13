@@ -1,20 +1,30 @@
 import LoginPage from "./pages/LoginPage"
 import Perfil from "./pages/Perfil.jsx"
-import ProductsDeletePage from "./pages/ProductsDeletePage"
+import PedidosELiminarPage from "./pages/PedidosEliminarPage.jsx"
 import ProductNewPage from "./pages/ProductNewPage"
 import EditPage from "./pages/EditPage"
 import HomePage from "./pages/HomePage"
+import PedidoDetalle from "./pages/PedidoDetalle.jsx"
+import NuevoPedidoPage from "./pages/NuevoPedidoPage.jsx"
+
 import {Routes, Route, Link, useNavigate, Navigate} from 'react-router-dom'
 import { useState, useEffect } from "react"
+
 import ProductDetails from './pages/ProductsDetails.jsx'
 import NotFoundPage from './pages/NotFoundPage'
 import * as authService from './services/auth.services.js'
 import SinPermiso from "./pages/SinPermiso.jsx"
 import './estilos.css'
+
 import *as SesionServices from './services/sesion.services.js'
 import Success from "./pages/Success.jsx"
 import Error from "./pages/Error.jsx"
 import { useLocation } from 'react-router-dom';
+
+import BarraLateral from "./components/BarraLateral.jsx"
+
+import { useSelector, useDispatch } from "react-redux";
+import { loginFalse, loginTrue } from "./redux/loginSlice.js"
 
 function RoutePrivate({isAuthenticate, children}){
   return (
@@ -46,6 +56,12 @@ function App() {
     const formattedDate = fechaActual.toLocaleString();
     const [selectedBarra, setSelectedBarra] = useState(true);
     const [hamburguesa, setHamburguesa] = useState(true);
+    const dispatch = useDispatch();
+
+    const isOpen = useSelector((state) => state.sidebar.isOpen);
+    console.log(isOpen)
+
+    const isLogin = useSelector((state) => state.login.isLogin)
   
     const handleItemClick = () => {
       if(selectedBarra === true) {
@@ -87,7 +103,9 @@ function App() {
       localStorage.setItem('inicio', formattedDate)
       if(user.role === 'admin'){
         console.log('Ingresó el admin')
-        setIsAdmin(true)     
+        setIsAdmin(true);
+        dispatch(loginTrue());
+        console.log(isLogin, 'este es del reduxx')     
       } else {
         setIsAdmin(false)
         console.log('Ingresó', user.role)
@@ -110,16 +128,18 @@ function App() {
     authService.logout()
     setAuthenticated(false)
     setIsAdmin(false)
+    setCerrar(true)
     localStorage.removeItem('token')
     localStorage.removeItem('user')
     localStorage.removeItem('inicio')
+    dispatch(loginFalse())
     navigate('/login')
   }
 
     //vista
     return (
-        <div>
-        <header>
+        <div className="contenedor-app">
+        {/* <header>
         <div className="logo">
             <a href="/" id="logo">Stock Keaton</a>
         </div>
@@ -135,9 +155,13 @@ function App() {
             {isAuthenticate &&<><li id="cerrar-sesion"><a onClick={onLogout}>Cerrar sesión</a></li></>}
           </ul>          
         </nav>
-        </header>
-        {isAuthenticate &&<><Success mensaje={"Iniciaste sesión correctamente"}/></>}
-        {cerrar &&<><Success mensaje={"Cerraste sesión correctamente"}/></>}
+        </header> */}
+
+        <BarraLateral onLogout={onLogout}></BarraLateral>
+        {isAuthenticate &&<><Success mensaje={"Bienvenido !"}/></>}
+        {cerrar &&<><Success mensaje={"Cerraste sesión"}/></>}
+
+        <main className={`${isOpen ? "main-open" : "main-closed"}`}>
         <Routes>
             
             <Route path={'/'}  element={<RoutePrivate isAuthenticate={isAuthenticate}><RouteAdmin isAdmin={isAdmin}><HomePage/></RouteAdmin></RoutePrivate>}></Route>
@@ -145,12 +169,16 @@ function App() {
             <Route path={'/login'} element={<LoginPage onLogin={onLogin} />}></Route>
 
             <Route path='/products/new' element={<ProductNewPage/>}></Route>
+            
+            <Route path='/pedido/nuevo' element={<NuevoPedidoPage/>}></Route>
 
             <Route path='/products/:id' element={<ProductDetails/>}></Route>
 
+            <Route path='/products/:id/ver' element={<PedidoDetalle/>}></Route>
+
             <Route path='/products/:id/edit' element={<EditPage/>}></Route>
 
-            <Route path='/products/:id/delete' element={<ProductsDeletePage/>}></Route>
+            <Route path='/products/:id/delete' element={<PedidosELiminarPage/>}></Route>
 
             <Route path='/notfound' element={<NotFoundPage/>}></Route>
 
@@ -160,6 +188,7 @@ function App() {
 
             <Route path='/*' element={<h1>Error 404</h1>}></Route>
         </Routes>
+        </main>
         </div>
     )
 }

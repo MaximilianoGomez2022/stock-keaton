@@ -1,16 +1,16 @@
 import {useEffect, useState} from 'react'
 import {useParams} from 'react-router-dom'
-import * as productosServices from '../services/products.services.js'
+import * as PeidosServices from '../services/pedidos.services.js'
 import {useNavigate} from 'react-router-dom'
 
-function ProductsDeletePage(){
+function PedidosELiminarPage(){
 
     const [producto, setProducto] = useState({})
     const {id} = useParams()
     const navigate = useNavigate()
 
     useEffect(()=>{
-        productosServices.findById(id)
+        PeidosServices.traerPedidoPorId(id)
         .then(data => {
             setProducto(data)
         })
@@ -18,21 +18,18 @@ function ProductsDeletePage(){
 
     function onSubmit(e){
         e.preventDefault()
-        if(confirm('Deseas eliminar definitivamente este producto ?')){
-            productosServices.eliminar(id)
+            PeidosServices.eliminar(id)
             .then((data) => {
                 console.log('Eliminaste')
                 console.log(data)
                 navigate("/", { state: { setDelete : true } })               
             })
-        }
-
     }
 
     return (
         <section className='section-eliminar'>
-            <h2>Eliminar Producto {producto.nombre}</h2>
-            <p>¿ Estas seguro de eliminar este producto ?</p>
+            <h2>Eliminar Pedido {producto.nombre}</h2>
+            <p>¿ Estas seguro de eliminar este pedido ?</p>
             <form onSubmit={onSubmit}>
                 <div>
                 <button>Eliminar</button>
@@ -41,4 +38,4 @@ function ProductsDeletePage(){
         </section> )
 }
 
-export default ProductsDeletePage
+export default PedidosELiminarPage

@@ -806,7 +806,7 @@ nav a i {
         -moz-box-shadow: -1px 6px 5px 0px rgba(105,105,105,0.75);
     }
     table th, table td {
-        font-size: 14px;
+        font-size: 16px;
     }
     table td {
         display: block;
@@ -818,7 +818,6 @@ nav a i {
     }
     table td::before {
         content: attr(data-label);
-        font-weight: bold;
         text-transform: uppercase;
         float: left;
     }
@@ -891,6 +890,10 @@ nav a i {
         display: flex;
         justify-content: space-between;
         flex-direction: column;
+    }
+
+    .section-agregar {
+        width: 95%;
     }
 
     .section-agregar .form-agregar {

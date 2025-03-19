@@ -35,10 +35,10 @@ function PedidoDetalle() {
             <tbody>
             {pedido.productos?.map((p, index) => (
               <tr key={index}>
-                <td>{p.nombre}</td>
-                <td>{p.cantidad}</td>
-                <td>${p.precio}</td>
-                <td>${p.precio * p.cantidad}</td>
+                <td data-label="Producto">{p.nombre}</td>
+                <td data-label="Cantidad">{p.cantidad}</td>
+                <td data-label="Precio">${p.precio}</td>
+                <td data-label="Subtotal">${p.precio * p.cantidad}</td>
               </tr>
             ))}
             </tbody>

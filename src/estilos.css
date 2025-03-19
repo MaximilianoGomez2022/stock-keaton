@@ -884,6 +884,35 @@ nav a i {
     .barra-none {
         display: none !important; 
     }
+
+    /*** AGREAGR ***/
+
+    .contenedor-agregar {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+    }
+
+    .section-agregar .form-agregar {
+        width: 100%;
+    }
+
+    .section-agregar .ticket {
+        width: 100%;
+        margin-top: 3em;
+    }
+
+    .section-agregar h3 {
+        margin-bottom: 40px;
+    }
+
+    .section-agregar .ticket .total {
+        margin-top: 3em;
+    }
+
+    form {
+        width: 100% !important;
+    };
     
     
 }

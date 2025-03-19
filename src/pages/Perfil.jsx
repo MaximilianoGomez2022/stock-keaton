@@ -7,11 +7,12 @@ import {useNavigate} from 'react-router-dom'
 
 function Perfil(){
 
-    const [mail, setMail] = useState("")
     const [password, setPassword] = useState("")
-    const [confirmarPassword, setConfirm] = useState("")
+    const [actual, setActual] = useState("")
+    const [nuevaPassword, setNuevaPassword] = useState("")
     const [user, setUser] = useState({})
     const [error, setError] = useState(false)
+    const [mail, setMail] = useState("")
     const navigate = useNavigate()
     const userid = JSON.parse(localStorage.getItem("user"));
     const id = userid._id
@@ -22,44 +23,63 @@ function Perfil(){
         .then(data => {
             console.log(data)
             setUser(data)
+            setMail(data.mail)
         })
     }, [id])
 
     function changeName(e){
         setMail(e.target.value)
     }
-    function changePassword(e){
-        setPassword(e.target.value)
-    }
-    function changeConfirm(e){
-        setConfirm(e.target.value)
-    }
-    function onSubmit(e){
-        e.preventDefault()
-        {if(password === confirmarPassword){
-            UsersServices.edit(id, {mail, password})
-            .then((data) => {
-                console.log(data)
-                navigate("/", { state: { setEditPerfil : true } })          
-            })
-        }else{
-            setError(true)
-        }}
+
+    function changeActual(e){
+        setActual(e.target.value)
     }
 
-    return (<div className='section-editar'>
+    function changeNueva(e){
+        setNuevaPassword(e.target.value)
+    }
+
+    function onSubmit(e){
+        e.preventDefault()
+        UsersServices.edit(id, {mail, password, nuevaPassword})
+        .then((data) => {
+            console.log(data)
+            navigate("/", { state: { setEditPerfil : true } })          
+        })
+    }
+
+    function onSubmitContraseña(e) {
+        e.preventDefault()
+        UsersServices.editContraseña(id, {actual, nuevaPassword})
+        .then((data) => {
+            console.log(data)
+            alert(data.message)
+        })
+    }
+
+    console.log(user)
+
+    return (
+    <div className='section-editar-perfil'>
     {error && <><Error mensaje={"Los passwords no coinciden"}></Error></>}
-        <h1>Editar Perfil</h1> 
-        <form onSubmit={onSubmit}>
+        <h1>EDITAR PERFIL</h1> 
+        <form onSubmit={onSubmit} className='form-editar-perfil'>
         <div className='mb-3'>
             <label className="form-label">Nombre</label>
-            <input className="form-control" type="text" name='mail' onChange={changeName} value={mail}/>
+            <input className="form-control" type="text" name='nombre' onChange={changeName} value={mail}/>
         </div>
-            <label className="form-label">Contraseña</label>
-            <input className="form-control" type="text" name='password' onChange={changePassword} value={password} />
-            <label className="form-label">Confirmar Contraseña</label>
-            <input className="form-control" type="text" name='confirmar-password' onChange={changeConfirm} value={confirmarPassword} />
             <button className='btn btn-dark w-100'>Editar Perfil</button>            
+        </form>
+        <form onSubmit={onSubmitContraseña} className='form-editar-perfil'>
+        <div className='mb-3'>
+            <label className="form-label">Ingresa contraseña actual</label>
+            <input className="form-control" type="password" name='actual' onChange={changeActual} value={actual}/>
+        </div>
+        <div className='mb-3'>
+            <label className="form-label">Nueva</label>
+            <input className="form-control" type="password" name='nueva' onChange={changeNueva} value={nuevaPassword}/>
+        </div>
+        <button className='btn btn-dark w-100'>Editar Contrseña</button>
         </form>
     </div> )
 }

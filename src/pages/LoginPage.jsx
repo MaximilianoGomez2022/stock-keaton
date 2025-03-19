@@ -21,13 +21,17 @@ function LoginPage({onLogin}){
         setErrorTrue(false)
         event.preventDefault()
         authService.login(mail, password)
-        .then(({user, token}) =>{
-            onLogin(user, token)
+        .then(({ user, token }) => {
+            if (!user || !token) {
+                throw new Error("Usuario o token no recibido");
+            }
+            onLogin(user, token);
         })
-        .catch(error =>{
-            setError(error.errors)
-            setErrorTrue(true)
-        })
+        .catch(error => {
+            console.error("Error en login:", error);
+            setError(error.errors || "Error al iniciar sesión");
+            setErrorTrue(true);
+        });
     }
 
     function onChangeMail(event){

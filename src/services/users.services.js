@@ -1,5 +1,5 @@
 async function findById(id) {
-    return fetch(`https://back-stock-keaton.vercel.app/users/${id}`, {
+    return fetch(`https://back-stock-keaton.vercel.app/api/users/${id}`, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
@@ -17,7 +17,7 @@ async function findById(id) {
 }
 
 async function edit(id, user) {
-    return fetch(`https://back-stock-keaton.vercel.app/users/${id}`, {
+    return fetch(`https://back-stock-keaton.vercel.app/api/users/${id}`, {
         method: 'PATCH',
         headers: {
             'Content-Type': 'application/json',
@@ -25,10 +25,23 @@ async function edit(id, user) {
         },
         body: JSON.stringify(user)
     })
-        .then(response => response.json())
+    .then(response => response.json())
+}
+
+async function editContraseña(id, contraseñas) {  
+    return fetch(`https://back-stock-keaton.vercel.app/api/users/cambiarPassword/${id}`, {
+        method: 'PATCH',
+        headers: {
+            'Content-Type': 'application/json',
+            'auth-token': localStorage.getItem('token')
+        },
+        body: JSON.stringify(contraseñas)
+    })
+    .then(response => response.json())
 }
 
 export {
     findById,
-    edit
+    edit,
+    editContraseña
 }

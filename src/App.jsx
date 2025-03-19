@@ -62,7 +62,7 @@ function App() {
     console.log(isOpen)
 
     const isLogin = useSelector((state) => state.login.isLogin)
-  
+
     const handleItemClick = () => {
       if(selectedBarra === true) {
         setSelectedBarra(false)
@@ -86,7 +86,7 @@ function App() {
     //    navigate('/login')
     //  }
     //}, [])
-  
+
     useEffect(() => {
         if(!isAuthenticate) {
        navigate('/login')
@@ -95,7 +95,7 @@ function App() {
          console.log('Fecha Actual: ', fechaActual)
        }
     }, [isAuthenticate])
-  
+
     function onLogin(user,token){
       setAuthenticated(true)
       localStorage.setItem('token', token)
@@ -105,35 +105,32 @@ function App() {
         console.log('Ingresó el admin')
         setIsAdmin(true);
         dispatch(loginTrue());
-        console.log(isLogin, 'este es del reduxx')     
+        console.log(isLogin, 'este es del reduxx')
       } else {
         setIsAdmin(false)
         console.log('Ingresó', user.role)
       }
       navigate('/', { state: { setExito : false } })
-      console.log(userid._id)
+      console.log(user._id)
   }
-  
+
   function onLogout(){
-    setCerrar(false)
+    setCerrar(true)
     const hora = localStorage.getItem('inicio')
-    const id = localStorage.getItem('id')
-    console.log(hora)
-    console.log("este es el id", id)
-    SesionServices.editSesion(id, {hora})
-    .then(() => {
-      setCerrar(true)
-      console.log("guardaste la sesión")          
-    })
+    // const id = localStorage.getItem('id')
+    // SesionServices.editSesion(id, {hora})
+    // .then(() => {
+    //   console.log("guardaste la sesión")
+    // })
     authService.logout()
     setAuthenticated(false)
     setIsAdmin(false)
-    setCerrar(true)
     localStorage.removeItem('token')
     localStorage.removeItem('user')
     localStorage.removeItem('inicio')
     dispatch(loginFalse())
     navigate('/login')
+    setCerrar(false)
   }
 
     //vista
@@ -151,9 +148,9 @@ function App() {
           <ul id="barra" onClick={handleItemClick} className={ selectedBarra ? 'barratrue' : 'barrafalse' }>
             {isAuthenticate &&<><li><Link to={'/'}>Home</Link></li></>}
             {isAuthenticate &&<><li><Link to={'/products/new'}>Agregar Producto</Link></li></>}
-            {isAuthenticate &&<><li><Link to={'/perfil/editar'}>Editar Perfil</Link></li></>}      
+            {isAuthenticate &&<><li><Link to={'/perfil/editar'}>Editar Perfil</Link></li></>}
             {isAuthenticate &&<><li id="cerrar-sesion"><a onClick={onLogout}>Cerrar sesión</a></li></>}
-          </ul>          
+          </ul>
         </nav>
         </header> */}
 
@@ -163,13 +160,13 @@ function App() {
 
         <main className={`${isOpen ? "main-open" : "main-closed"}`}>
         <Routes>
-            
+
             <Route path={'/'}  element={<RoutePrivate isAuthenticate={isAuthenticate}><RouteAdmin isAdmin={isAdmin}><HomePage/></RouteAdmin></RoutePrivate>}></Route>
 
             <Route path={'/login'} element={<LoginPage onLogin={onLogin} />}></Route>
 
             <Route path='/products/new' element={<ProductNewPage/>}></Route>
-            
+
             <Route path='/pedido/nuevo' element={<NuevoPedidoPage/>}></Route>
 
             <Route path='/products/:id' element={<ProductDetails/>}></Route>

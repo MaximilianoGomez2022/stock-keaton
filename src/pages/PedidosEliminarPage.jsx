@@ -31,8 +31,9 @@ function PedidosELiminarPage(){
             <h2>Eliminar Pedido {producto.nombre}</h2>
             <p>¿ Estas seguro de eliminar este pedido ?</p>
             <form onSubmit={onSubmit}>
-                <div>
-                <button>Eliminar</button>
+                <div className='contenedor-btones-eliminar'>
+                <button className='btn-dark'>Eliminar</button>
+                <button type='button' className="btn btn-light w-100" onClick={() => navigate(-1)}>Atrás</button>
                 </div>           
             </form>
         </section> )

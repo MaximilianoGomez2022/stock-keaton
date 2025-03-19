@@ -290,7 +290,7 @@ table {
     background-color: #f8f8f8;
 }
 .section-agregar h1 {
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
 .contenedor-agregar {
@@ -367,6 +367,15 @@ table {
     border: 0
 }
 
+.contenedor-btones-eliminar {
+    display: flex;
+    justify-content: space-around;
+}
+
+.contenedor-btones-eliminar button {
+    width: 40%;
+}
+
 /* +++++++++++++++++ EDITAR ++++++++++++++++++*/
 
 .section-editar {
@@ -390,9 +399,46 @@ table {
 }
 
 .form-editar-pedido input {
-    margin-bottom: 0px !important;
+    margin-bottom: 20px !important;
     border-radius: 3px !important;
     border: 3px solid #ececec !important;
+}
+
+.producto-item {
+    width: 48%;
+    border: 3px solid #ececec;
+    padding: 20px;
+    margin-bottom: 30px;
+    border-radius: 5px;
+}
+
+.producto-item input {
+    width: 70%;
+}
+
+.producto-item h2 {
+    margin-bottom: 20px;
+}
+
+
+.contenedor-form-edtiar {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 20px;
+    justify-content: space-between;
+}
+
+.div-botones-editar {
+    display: flex;
+    width: 30%;
+}
+
+.div-botones-editar button {
+    margin-right: 20px;
+}
+
+.div-botones-editar button:nth-last-child() {
+    background-color: #fff !important;
 }
 
 body{
@@ -431,6 +477,30 @@ footer {
     padding: 12px;
     border-radius: 5px;
     margin-bottom: 30px;
+}
+
+.btn-light {
+    background-color: transparent;
+    color: #000000;
+    font-weight: 500;
+    font-size: 1em;
+    text-decoration: none;
+    padding: 12px;
+    border-radius: 5px;
+    margin-bottom: 30px;
+    border-color: #666666;
+}
+
+.btn-light:hover {
+    background-color: transparent;
+    color: #000000;
+    font-weight: 500;
+    font-size: 1em;
+    text-decoration: none;
+    padding: 12px;
+    border-radius: 5px;
+    margin-bottom: 30px;
+    border-color: #666666;
 }
 
 #cerrar-sesion {
@@ -508,10 +578,48 @@ footer {
     font-weight: 600;
 }
 
+.section-editar form input{
+    margin-bottom: 20px;
+}
+
 .login a {
     color: #f8b11e;
     cursor: pointer;
     margin-bottom: 30px;
+}
+
+/************ EDITAR PERFIL **********/
+
+.section-editar-perfil {
+    padding-top: 4em;
+    width: 90%;
+    margin: auto;
+}
+
+.section-editar-perfil h1 {
+    margin-bottom: 10px;
+}
+
+.form-editar-perfil {
+    border: 3px solid #ececec;
+    background-color: #a5a5a5;
+}
+
+.form-editar-perfil {
+    width: 70% !important;
+    border: 3px solid #ececec;
+    padding: 15px 30px;
+    background-color: #f8f8f8;
+}
+
+.form-editar-perfil input {
+    margin-bottom: 20px !important;
+    border-radius: 3px !important;
+    border: 3px solid #ececec !important;
+}
+
+.form-editar-perfil label {
+    color: #000000;
 }
 
 /* Reset */
@@ -715,6 +823,10 @@ nav a i {
         float: left;
     }
 
+    .login form {
+        width: 100% !important;
+    }
+
     .acciones img {
         width: 20px;
         margin-right: 10px;
@@ -725,6 +837,43 @@ nav a i {
         display: inline;
         margin-bottom: 15px;
         margin-left: 20px;
+    }
+
+    #sidebar {
+        position: absolute;
+        top: auto;
+        bottom: 0;
+        left: 0;
+        width: 100%; /* Ocupar todo el ancho */
+        height: 60px; /* Altura de barra inferior */
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        z-index: 100000;
+    }
+
+    .contenedor-app {
+        flex-direction: column;
+    }
+
+    #toggle-btn {
+        display: none;
+    }
+
+    .nav-open h2 {
+        display: none;
+    }
+    
+    .nav-open a, li {
+        display: inline;
+    }
+
+    .main-open {
+        width: 95vw;
+    }
+
+    .nav-open a span {
+        display: none;
     }
 
     

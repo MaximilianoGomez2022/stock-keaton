@@ -12,15 +12,15 @@ function BarraLateral ({onLogout}) {
     return (
         <aside id="sidebar" className={`sidebar ${isOpen ? "open" : "closed"} ${isLogin ? "barra-block" : "barra-none"}`}>
         <button id="toggle-btn" onClick={() => dispatch(toggleSidebar())}>
-            <i class="fas fa-bars"></i>
+            <i className="fas fa-bars"></i>
         </button>
         <div className={`${isOpen ? "nav-open" : "nav-closed"}`}>
         <h2>STOCKEATON</h2>
         <nav>
-            <Link to={'/'}><i class="fas fa-home"></i>Home</Link>
-            <Link to={'/pedido/nuevo'}><i className="fas fa-plus"></i>Nuevo Pedido</Link>
-            <Link to={'/perfil/editar'}><i className="fas fa-user"></i>Editar Perfil</Link>     
-            <li id="cerrar-sesion"><a onClick={onLogout}><i className="fas fa-sign-out-alt"></i> Cerrar sesión</a></li>
+            <Link to={'/'}><i className="fas fa-home"></i><span>Home</span></Link>
+            <Link to={'/pedido/nuevo'}><i className="fas fa-plus"></i><span>Nuevo Pedido</span></Link>
+            <Link to={'/perfil/editar'}><i className="fas fa-user"></i><span>Editar Perfil</span></Link>     
+            <li id="cerrar-sesion"><a onClick={onLogout}><i className="fas fa-sign-out-alt"></i><span>Cerrar sesión</span></a></li>
         </nav>
         </div>
         </aside>

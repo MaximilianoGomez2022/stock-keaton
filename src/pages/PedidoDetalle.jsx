@@ -25,18 +25,20 @@ function PedidoDetalle() {
           <h1 className="mb-5">FECHA DE PEDIDO: {pedido.fecha}</h1>
           <table className="table-detalle">
             <thead>
+              <tr>
                 <th>PRODUCTO</th>
                 <th>CANTIDAD</th>
                 <th>PRECIO</th>
                 <th>SUBTOTAL</th>
+              </tr>
             </thead>
             <tbody>
             {pedido.productos?.map((p, index) => (
-                <tr>
-              <td key={index}>{p.nombre}</td>
-              <td>{p.cantidad}</td>
-              <td>${p.precio}</td>
-              <td>${p.precio * p.cantidad}</td>
+              <tr key={index}>
+                <td>{p.nombre}</td>
+                <td>{p.cantidad}</td>
+                <td>${p.precio}</td>
+                <td>${p.precio * p.cantidad}</td>
               </tr>
             ))}
             </tbody>

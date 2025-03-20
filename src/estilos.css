@@ -1000,6 +1000,13 @@ nav a i {
         margin-bottom: 20px;
     }
 
+    .section-editar-perfil {
+        width: 100%;
+    }
+
+    .form-editar-perfil {
+        padding: 15px 5px;
+    }
 
     
     

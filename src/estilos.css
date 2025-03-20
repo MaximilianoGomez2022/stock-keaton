@@ -857,6 +857,7 @@ nav a i {
         justify-content: space-around;
         align-items: center;
         z-index: 100000;
+        padding-top: 2.4em;
     }
 
     .contenedor-app {
@@ -882,6 +883,23 @@ nav a i {
 
     .nav-open a span {
         display: none;
+    }
+
+    .nav-open {
+        width: 100%;
+    }
+
+    nav {
+        align-items: center;
+    }
+
+    .nav-open li {
+        margin-bottom: .3em;
+    }
+
+    .nav-open nav {
+        display: flex;
+        justify-content: space-around;
     }
 
     footer {

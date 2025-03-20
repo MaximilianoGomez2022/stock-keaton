@@ -902,7 +902,7 @@ nav a i {
     }
 
     .section-agregar {
-        width: 95%;
+        width: 100%;
     }
 
     .section-agregar .form-agregar {
@@ -936,6 +936,10 @@ nav a i {
 
     .acciones td:first-child {
         display: none;
+    }
+
+    .container-detalle {
+        width: 100%;
     }
     
     

@@ -953,8 +953,12 @@ nav a i {
     .bienvenida a {
         position: absolute;
         bottom: 80px;
-        right: 5px;
+        right: 15px;
         font-size: 0;
+    }
+
+    .bienvenida i {
+        font-size: 28px;
     }
 
     

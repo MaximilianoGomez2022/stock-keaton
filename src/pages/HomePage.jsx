@@ -47,7 +47,7 @@ function HomePage() {
                   <p key={_id}>Anterior inicio de sesión: {hora}</p>
                )}
             </div>
-            <Link to={"/pedido/nuevo"} className="btn-dark">+ NUEVO PEDIDO</Link>
+            <Link to={"/pedido/nuevo"} className="btn-dark"><i className="fas fa-plus"></i> NUEVO PEDIDO</Link>
             </div>
             <Lista></Lista>
             </div> )

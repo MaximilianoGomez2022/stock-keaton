@@ -930,6 +930,10 @@ nav a i {
         flex-direction: column;
     }
 
+    .acciones {
+        align-items: center;
+    }
+
     .acciones a {
         font-size: 0;
     }
@@ -941,6 +945,18 @@ nav a i {
     .container-detalle {
         width: 100%;
     }
+
+    .acciones div:first-child a img {
+        width: 28px;
+    }
+
+    .bienvenida a {
+        position: absolute;
+        bottom: 80px;
+        right: 5px;
+        font-size: 0;
+    }
+
     
     
 }

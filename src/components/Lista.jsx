@@ -40,7 +40,7 @@ function Lista () {
                     <td className="acciones">
                     <div>
                     <Link to={`/products/${_id}/ver`}>
-                        <img src="/img/editar.svg" alt="Editar" />
+                        <img src="/img/external-link.svg" alt="Editar" />
                         Ver
                     </Link>
                     </div>

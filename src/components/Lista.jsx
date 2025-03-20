@@ -36,8 +36,8 @@ function Lista () {
             {Array.isArray(productos) ? (
             productos.map(({ _id, fecha}) => (
                 <tr key={_id}>
-                    <td data-label="Nombre">{fecha}</td>
-                    <td data-label="Acciones" className="acciones">
+                    <td data-label="Fecha">{fecha}</td>
+                    <td className="acciones">
                     <div>
                     <Link to={`/products/${_id}/ver`}>
                         <img src="/img/editar.svg" alt="Editar" />

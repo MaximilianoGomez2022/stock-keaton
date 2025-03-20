@@ -813,13 +813,19 @@ nav a i {
         border-bottom: 1px solid #ddd;
         text-align: right;
     }
+
     table  td:last-child {
         border-bottom: 0px;
     }
+
     table td::before {
         content: attr(data-label);
         text-transform: uppercase;
         float: left;
+    }
+
+    table td::before:first-child {
+        display: none;
     }
 
     .login form {
@@ -827,7 +833,7 @@ nav a i {
     }
 
     .acciones img {
-        width: 20px;
+        width: 25px;
         margin-right: 10px;
         margin-bottom: -5px;
     }
@@ -916,6 +922,18 @@ nav a i {
     form {
         width: 100% !important;
     };
+
+    .contenedor-form-edtiar {
+        flex-direction: column;
+    }
+
+    .acciones a {
+        font-size: 0;
+    }
+
+    .acciones td:first-child {
+        display: none;
+    }
     
     
 }

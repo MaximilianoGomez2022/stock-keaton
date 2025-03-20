@@ -342,7 +342,7 @@ table {
 }
 
 .total {
-    background-color: #1e1e1e;
+    background-color: #000000;
     color: #e8a41c;
     font-size: 1.4em;
     font-weight: 800;
@@ -919,7 +919,7 @@ nav a i {
     }
 
     .section-agregar {
-        width: 100%;
+        width: 95%;
     }
 
     .section-agregar .form-agregar {
@@ -941,7 +941,7 @@ nav a i {
 
     form {
         width: 100% !important;
-    };
+    }
 
     .contenedor-form-edtiar {
         flex-direction: column;
@@ -985,6 +985,16 @@ nav a i {
     .inicio-sesion h1 {
         margin-bottom: 0px;
     }
+
+    .form-agregar form {
+        padding: 15px 5px;
+    }
+
+    .form-agregar form input {
+        height: 52px;
+        border-radius: 12px;
+    }
+
 
     
     

@@ -961,6 +961,14 @@ nav a i {
         font-size: 28px;
     }
 
+    .inicio-sesion p {
+        margin-bottom: 20px;
+    }
+
+    .inicio-sesion h1 {
+        margin-bottom: 0px;
+    }
+
     
     
 }

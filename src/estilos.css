@@ -1035,6 +1035,10 @@ nav a i {
     .success, .error {
         top: 0px;
     }
+
+    form input {
+        font-size: 16px;
+    }
     
 }
 

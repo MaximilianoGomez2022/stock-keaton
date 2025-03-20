@@ -731,6 +731,10 @@ nav a i {
     margin-bottom: .5em;
     }
 
+    .contenedor-home {
+        width: 100%;
+    }
+
     .success {
         color: #ffffff;
         position: absolute;
@@ -776,8 +780,7 @@ nav a i {
     }
 
     .section-tabla {
-        border: 0px solid black;
-        width: 95%;
+        width: 100%;
         margin: auto;
     }
 

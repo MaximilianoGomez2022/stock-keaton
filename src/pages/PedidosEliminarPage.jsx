@@ -28,7 +28,7 @@ function PedidosELiminarPage(){
 
     return (
         <section className='section-eliminar'>
-            <h2>Eliminar Pedido {producto.nombre}</h2>
+            <h1>ELIMINAR PEDIDO {producto.nombre}</h1>
             <p>¿ Estas seguro de eliminar este pedido ?</p>
             <form onSubmit={onSubmit}>
                 <div className='contenedor-btones-eliminar'>

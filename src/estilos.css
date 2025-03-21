@@ -233,6 +233,7 @@ tfoot td {
 .acciones {
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 
 .acciones img {
@@ -240,6 +241,12 @@ tfoot td {
     margin-right: 10px;
     margin-bottom: -5px;
 }
+
+
+.acciones div:first-child a img {
+    width: 29px;
+}
+
 
 .acciones div {
     line-height: 0;
@@ -355,6 +362,10 @@ table {
 
 .section-eliminar {
     padding-top: 4em;
+}
+
+.section-eliminar h1 {
+    text-align: center;
 }
 
 .container-detalle {
@@ -1038,6 +1049,13 @@ nav a i {
 
     form input {
         font-size: 18px;
+    }
+
+    .login {
+        background-color: black;
+        height: 100%;
+        position: absolute;
+        width: 100%;
     }
     
 }

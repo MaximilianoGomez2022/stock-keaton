@@ -57,7 +57,7 @@ function LoginPage({onLogin}){
             {(error || []).map((err, index) => <p key={index}>{err}</p>)}
             </div>
                 <div className='mb-3'>
-                <label className="form-label">E-Mail: </label>
+                <label className="form-label">Nombre: </label>
                 <input className="form-control" type="text" name="mail" onChange={onChangeMail} value={mail} />
                 </div>
 

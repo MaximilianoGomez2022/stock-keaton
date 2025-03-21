@@ -39,19 +39,19 @@ function Lista () {
                     <td data-label="Fecha">{fecha}</td>
                     <td className="acciones">
                     <div>
-                    <Link to={`/products/${_id}/ver`}>
+                    <Link to={`/pedido/${_id}/ver`}>
                         <img src="/img/external-link.svg" alt="Editar" />
                         Ver
                     </Link>
                     </div>
                     <div>
-                    <Link to={`/products/${_id}/edit`}>
+                    <Link to={`/pedido/${_id}/edit`}>
                         <img src="/img/editar.svg" alt="Editar" />
                         Editar
                     </Link>
                     </div>
                     <div>
-                    <Link to={`/products/${_id}/delete`}>
+                    <Link to={`/pedido/${_id}/delete`}>
                         <img src="/img/eliminar.svg" alt="Eliminar" />
                         Eliminar
                     </Link>

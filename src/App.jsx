@@ -7,7 +7,7 @@ import HomePage from "./pages/HomePage"
 import PedidoDetalle from "./pages/PedidoDetalle.jsx"
 import NuevoPedidoPage from "./pages/NuevoPedidoPage.jsx"
 
-import {Routes, Route, Link, useNavigate, Navigate} from 'react-router-dom'
+import {Routes, Route, Link, useNavigate, Navigate, Outlet} from 'react-router-dom'
 import { useState, useEffect } from "react"
 
 import ProductDetails from './pages/ProductsDetails.jsx'
@@ -26,12 +26,8 @@ import BarraLateral from "./components/BarraLateral.jsx"
 import { useSelector, useDispatch } from "react-redux";
 import { loginFalse, loginTrue } from "./redux/loginSlice.js"
 
-function RoutePrivate({isAuthenticate, children}){
-  return (
-      <>
-          {isAuthenticate ? children : <Navigate to="/login"/>}
-      </>
-  )
+function RoutePrivate({ isAuthenticate }) {
+  return isAuthenticate ? <Outlet /> : <Navigate to="/login" replace />;
 }
 
 function RouteAdmin( {isAdmin, children}){
@@ -57,6 +53,8 @@ function App() {
     const [selectedBarra, setSelectedBarra] = useState(true);
     const [hamburguesa, setHamburguesa] = useState(true);
     const dispatch = useDispatch();
+    const location = useLocation();
+    const isLoginPage = location.pathname === '/login'
 
     const isOpen = useSelector((state) => state.sidebar.isOpen);
     console.log(isOpen)
@@ -136,55 +134,32 @@ function App() {
     //vista
     return (
         <div className="contenedor-app">
-        {/* <header>
-        <div className="logo">
-            <a href="/" id="logo">Stock Keaton</a>
-        </div>
-        <nav id="menu">
-            {isAdmin&&<><ul id="hamburguesa">
-                <li><a onClick={handleItemClick} className={hamburguesa ? 'hambtrue' : 'hambfalse'} href="#menu">abrir</a></li>
-                <li><a onClick={handleItemClick} href="#" className={hamburguesa ? 'hambtrue' : 'hambfalse'}>cerrar</a></li>
-            </ul></>}
-          <ul id="barra" onClick={handleItemClick} className={ selectedBarra ? 'barratrue' : 'barrafalse' }>
-            {isAuthenticate &&<><li><Link to={'/'}>Home</Link></li></>}
-            {isAuthenticate &&<><li><Link to={'/products/new'}>Agregar Producto</Link></li></>}
-            {isAuthenticate &&<><li><Link to={'/perfil/editar'}>Editar Perfil</Link></li></>}
-            {isAuthenticate &&<><li id="cerrar-sesion"><a onClick={onLogout}>Cerrar sesión</a></li></>}
-          </ul>
-        </nav>
-        </header> */}
 
-        <BarraLateral onLogout={onLogout}></BarraLateral>
+        {/* Mostrar la barra lateral solo si NO estamos en el login */}
+        {!isLoginPage && <BarraLateral onLogout={onLogout} />}  
         {isAuthenticate &&<><Success mensaje={"Bienvenido !"}/></>}
-        {cerrar &&<><Success mensaje={"Cerraste sesión"}/></>}
+        {!isAuthenticate &&<><Success mensaje={"Cerraste sesión"}/></>}
 
         <main className={`${isOpen ? "main-open" : "main-closed"}`}>
         <Routes>
+          {/* Rutas protegidas */}
+          <Route element={<RoutePrivate isAuthenticate={isAuthenticate} />}>
+              <Route path="/" element={<HomePage />} />
+              <Route path="/pedido/new" element={<ProductNewPage />} />
+              <Route path="/pedido/nuevo" element={<NuevoPedidoPage />} />
+              <Route path="/pedido/:id" element={<ProductDetails />} />
+              <Route path="/pedido/:id/ver" element={<PedidoDetalle />} />
+              <Route path="/pedido/:id/edit" element={<EditPage />} />
+              <Route path="/pedido/:id/delete" element={<PedidosELiminarPage />} />
+              <Route path="/perfil/editar" element={<Perfil />} />
+          </Route>
 
-            <Route path={'/'}  element={<RoutePrivate isAuthenticate={isAuthenticate}><RouteAdmin isAdmin={isAdmin}><HomePage/></RouteAdmin></RoutePrivate>}></Route>
-
-            <Route path={'/login'} element={<LoginPage onLogin={onLogin} />}></Route>
-
-            <Route path='/products/new' element={<ProductNewPage/>}></Route>
-
-            <Route path='/pedido/nuevo' element={<NuevoPedidoPage/>}></Route>
-
-            <Route path='/products/:id' element={<ProductDetails/>}></Route>
-
-            <Route path='/products/:id/ver' element={<PedidoDetalle/>}></Route>
-
-            <Route path='/products/:id/edit' element={<EditPage/>}></Route>
-
-            <Route path='/products/:id/delete' element={<PedidosELiminarPage/>}></Route>
-
-            <Route path='/notfound' element={<NotFoundPage/>}></Route>
-
-            <Route path='/sin-permiso' element={<SinPermiso/>}></Route>
-
-            <Route path='/perfil/editar' element={<Perfil></Perfil>}></Route>
-
-            <Route path='/*' element={<h1>Error 404</h1>}></Route>
-        </Routes>
+          {/* Rutas públicas */}
+          <Route path="/login" element={<LoginPage onLogin={onLogin} />} />
+          <Route path="/notfound" element={<NotFoundPage />} />
+          <Route path="/sin-permiso" element={<SinPermiso />} />
+          <Route path="/*" element={<h1>Error 404</h1>} />
+      </Routes>
         </main>
         </div>
     )

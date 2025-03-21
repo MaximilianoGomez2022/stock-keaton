@@ -48,9 +48,9 @@ function LoginPage({onLogin}){
 
     return (
         <div className='login'>
-            <h1>STOCKEATON</h1>
             {errorTrue &&<><Error mensaje={"Revisa los datos ingresados e intentá nuevamente."}/></>}
             <form onSubmit={onSubmit}>
+            <h1>STOCKEATON</h1>
             <div className='titulo-login'>
                 <h2>Iniciar Sesión</h2>
             </div>

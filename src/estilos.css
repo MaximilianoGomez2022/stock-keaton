@@ -1087,6 +1087,10 @@ nav a i {
     .titulo-login {
         margin-top: 4em;
     }
+
+    .success, .error {
+        z-index: 1000000000;
+    }
     
 }
 

@@ -86,13 +86,19 @@ function App() {
     //}, [])
 
     useEffect(() => {
-        if(!isAuthenticate) {
-       navigate('/login')
-        } else {
-         navigate('/')
-         console.log('Fecha Actual: ', fechaActual)
-       }
-    }, [isAuthenticate])
+          if(!isAuthenticate) {
+            // Añadir clase para el usuario NO autenticado
+            document.body.classList.add('not-authenticated');
+            document.body.classList.remove('authenticated');
+            navigate('/login')
+          } else {
+              // Añadir clase para el usuario autenticado
+              document.body.classList.add('authenticated');
+              document.body.classList.remove('not-authenticated'); // Eliminar clase para no autenticado
+              navigate('/')
+              console.log('Fecha Actual: ', fechaActual)
+        }
+        }, [isAuthenticate])
 
     function onLogin(user,token){
       setAuthenticated(true)
@@ -140,7 +146,7 @@ function App() {
         {isAuthenticate &&<><Success mensaje={"Bienvenido !"}/></>}
         {!isAuthenticate &&<><Success mensaje={"Cerraste sesión"}/></>}
 
-        <main className={`${isOpen ? "main-open" : "main-closed"}`}>
+        <main className={`${isLogin ? "main-open" : "main-closed"}`}>
         <Routes>
           {/* Rutas protegidas */}
           <Route element={<RoutePrivate isAuthenticate={isAuthenticate} />}>

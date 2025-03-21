@@ -134,7 +134,6 @@ function App() {
     localStorage.removeItem('inicio')
     dispatch(loginFalse())
     navigate('/login')
-    setCerrar(false)
   }
 
     //vista
@@ -144,7 +143,7 @@ function App() {
         {/* Mostrar la barra lateral solo si NO estamos en el login */}
         {!isLoginPage && <BarraLateral onLogout={onLogout} />}  
         {isAuthenticate &&<><Success mensaje={"Bienvenido !"}/></>}
-        {!isAuthenticate &&<><Success mensaje={"Cerraste sesión"}/></>}
+        {!isAuthenticate && cerrar && <><Success mensaje={"Cerraste sesión"}/></>}
 
         <main className={`${isLogin ? "main-open" : "main-closed"}`}>
         <Routes>

@@ -13,6 +13,19 @@ header, body, footer {
     margin: auto;
 }
 
+.not-authenticated {
+    max-width: 100vw;
+    max-height: 100vh;
+    overflow: hidden;
+}
+
+.authenticated {
+    overflow: auto;
+    max-width: auto;
+    max-height: auto;
+}
+
+
 li {
     list-style: none;
 }
@@ -1095,99 +1108,6 @@ nav a i {
 }
 
 @media (min-width: 1200px) {
-
-    header {
-        height: 82px;
-        display: flex;
-        justify-content: flex-end;
-        z-index: 3;
-        left: 0;
-        padding-right: 5em;
-    }
-
-    header nav {
-    position: relative;
-    background: #a34242;
-    left: 0vw;
-    width: 70%;
-    transition: 0.7s;
-    z-index: 5;
-    height: 100%;
-    flex: 1;
-}
-
-  .logo {
-      padding: 1em 10px;
-      font-size: 0;
-      display: inline-block;
-      height: 69px;
-      left: 2%;
-      flex: 1;
-      margin-left: 5em;
-  }
-
-    #logo {
-        background: url(/img/logo.svg);
-        background-repeat: no-repeat;
-        width: 280px;
-        height: 107px;
-        font-size: 0;
-        position: absolute;
-        z-index: 1000;
-        top: 4px;
-        left: 40px;
-    }
-
-
-    #hamburguesa {
-        display: none;
-    }
-
-    #barra {
-        display: block;
-        height: 69px;
-        padding: 0;
-        left: 0;
-        top: 0;
-        position: relative;
-        width: 100%;
-        background: none;
-        text-align: right;
-    }
-
-    #barra li {
-        display: inline-block;
-        margin: 0;
-        width: max-content;
-    }
-
-
-    #barra li a {
-        font-size: 1.1em;
-        font-weight: bold;
-        margin: 0px;
-        color: #f8b11e;
-        background-color: #000000;
-        transition: all 300ms;
-        float: right;
-        margin-left: 40px;
-        margin-top: 11px;
-        padding: 1em 10px;
-    }
-
-    #barra li a:hover {
-        background: #000000;
-        color: rgb(255, 255, 255);
-        transition: all 300ms;
-    }
-
-    header nav{
-        background: transparent;
-        background: none;
-        z-index: 30000;
-        transition: none;
-
-    }
 
     .section-agregar form {
         width: 90%;

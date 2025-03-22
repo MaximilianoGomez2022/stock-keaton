@@ -145,7 +145,7 @@ function App() {
         {isAuthenticate &&<><Success mensaje={"Bienvenido !"}/></>}
         {!isAuthenticate && cerrar && <><Success mensaje={"Cerraste sesión"}/></>}
 
-        <main className={`${isLogin ? "main-open" : "main-closed"}`}>
+        <main className={`${isOpen ? "main-open" : "main-closed"}`}>
         <Routes>
           {/* Rutas protegidas */}
           <Route element={<RoutePrivate isAuthenticate={isAuthenticate} />}>

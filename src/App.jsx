@@ -1,7 +1,6 @@
 import LoginPage from "./pages/LoginPage"
 import Perfil from "./pages/Perfil.jsx"
 import PedidosELiminarPage from "./pages/PedidosEliminarPage.jsx"
-import ProductNewPage from "./pages/ProductNewPage"
 import EditPage from "./pages/EditPage"
 import HomePage from "./pages/HomePage"
 import PedidoDetalle from "./pages/PedidoDetalle.jsx"

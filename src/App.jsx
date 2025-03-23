@@ -146,7 +146,6 @@ function App() {
           <Route element={<RoutePrivate isAuthenticate={isAuthenticate} />}>
               <Route path="/" element={<HomePage />} />
               <Route path="/pedido/nuevo" element={<NuevoPedidoPage />} />
-              <Route path="/pedido/:id" element={<ProductDetails />} />
               <Route path="/pedido/:id/ver" element={<PedidoDetalle />} />
               <Route path="/pedido/:id/edit" element={<EditPage />} />
               <Route path="/pedido/:id/delete" element={<PedidosELiminarPage />} />

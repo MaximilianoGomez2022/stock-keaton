@@ -25,7 +25,7 @@ function Lista () {
 
     return (
     <section className="section-tabla">
-        <table>
+        <table className="tabla-lista">
             <thead>
                 <tr>
                     <th>FECHA DE PEDIDO</th>

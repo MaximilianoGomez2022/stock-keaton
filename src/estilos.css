@@ -1107,6 +1107,10 @@ nav a i {
     form button {
         height: 55px;
     }
+
+    .tabla-lista tbody tr td {
+        background-color: red;
+    }
     
 }
 

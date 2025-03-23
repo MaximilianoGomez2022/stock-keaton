@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react"
 import {useParams} from 'react-router-dom'
-import * as ProductsServices from "../services/products.services"
+import * as PedidosServices from "../services/pedidos.services"
 
 function PedidoDetalle() {
 
@@ -9,7 +9,7 @@ function PedidoDetalle() {
     const [productos, setProductos] = useState([])
 
     useEffect(()=>{
-        ProductsServices.findById(id)
+        PedidosServices.traerPedidoPorId(id)
         .then(data => {
             setPedido(data)
             setProductos(data.productos)

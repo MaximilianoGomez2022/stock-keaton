@@ -150,7 +150,6 @@ function App() {
           {/* Rutas protegidas */}
           <Route element={<RoutePrivate isAuthenticate={isAuthenticate} />}>
               <Route path="/" element={<HomePage />} />
-              <Route path="/pedido/new" element={<ProductNewPage />} />
               <Route path="/pedido/nuevo" element={<NuevoPedidoPage />} />
               <Route path="/pedido/:id" element={<ProductDetails />} />
               <Route path="/pedido/:id/ver" element={<PedidoDetalle />} />

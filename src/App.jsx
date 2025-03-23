@@ -9,7 +9,6 @@ import NuevoPedidoPage from "./pages/NuevoPedidoPage.jsx"
 import {Routes, Route, Link, useNavigate, Navigate, Outlet} from 'react-router-dom'
 import { useState, useEffect } from "react"
 
-import ProductDetails from './pages/ProductsDetails.jsx'
 import NotFoundPage from './pages/NotFoundPage'
 import * as authService from './services/auth.services.js'
 import SinPermiso from "./pages/SinPermiso.jsx"

@@ -37,10 +37,6 @@ function RouteAdmin( {isAdmin, children}){
   )
 }
 
-function onClickBarra() {
-  console.log('hola')
-}
-
 function App() {
     //logica
     const [isAuthenticate, setAuthenticated] = useState(false)

@@ -1120,6 +1120,8 @@ nav a i {
     }
     .table-detalle tfoot tr td {
         font-size: 1.3em;
+        border-radius: 10px;
+        text-align: center;padding: 15px;
     }
     
 }

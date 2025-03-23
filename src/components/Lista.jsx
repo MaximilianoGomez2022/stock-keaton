@@ -36,6 +36,7 @@ function Lista () {
             {Array.isArray(productos) ? (
             productos.map(({ _id, fecha}) => (
                 <tr key={_id}>
+                    <Link to={`/pedido/${_id}/ver`}>
                     <td data-label="Fecha">{fecha}</td>
                     <td className="acciones">
                     <div>
@@ -57,6 +58,7 @@ function Lista () {
                     </Link>
                     </div>
                     </td>
+                    </Link>
                 </tr>
             ))
             ) : (

@@ -828,13 +828,13 @@ nav a i {
         margin-bottom: 20px;
         display: block;
     }
-    
+
     table th, table td {
         font-size: 16px;
     }
     table td {
         display: block;
-        border-bottom: 1px solid #ddd;
+        border-bottom: 2px solid #fafafa;
         text-align: right;
     }
 
@@ -1108,6 +1108,18 @@ nav a i {
     .tabla-lista tbody tr {
         background-color: rgb(241, 241, 241);
         border-radius: 10px;
+    }
+
+    .tabla-lista a {
+        text-decoration: none;
+        color: #1e1e1e;
+    }
+
+    .table-detalle tbody tr {
+        border-radius: 10px;
+    }
+    .table-detalle tfoot tr td {
+        font-size: 1.3em;
     }
     
 }

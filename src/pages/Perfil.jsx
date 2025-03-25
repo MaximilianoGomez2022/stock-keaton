@@ -80,7 +80,7 @@ function Perfil(){
             <label className="form-label">Nueva</label>
             <input placeholder='Nueva contraseña' className="form-control" type="password" name='nueva' onChange={changeNueva} value={nuevaPassword}/>
         </div>
-        <button className='btn btn-dark w-100'>Editar Contrseña</button>
+        <button className='btn btn-dark w-100'>Editar Contraseña</button>
         </form>
     </div> )
 }

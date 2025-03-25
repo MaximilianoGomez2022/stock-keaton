@@ -458,7 +458,7 @@ table {
 }
 
 .div-botones-editar button {
-    margin-right: 20px;
+    width: 45%;
 }
 
 .div-botones-editar button:nth-last-child() {
@@ -1051,6 +1051,7 @@ nav a i {
     .div-botones-editar {
         display: flex;
         width: 100%;
+        justify-content: space-between;
     }
 
     .success, .error {
@@ -1170,6 +1171,18 @@ nav a i {
 
     .section-editar-perfil form:last-child h2{
         margin-bottom: 20px;
+    }
+
+    .form-editar-pedido {
+        background-color: #fff;
+        border: 0px;
+    }
+
+    .form-editar-pedido input {
+        margin-bottom: 20px !important;
+        border-radius: 7px !important;
+        border: 2px solid #ececec !important;
+        height: 55px;
     }
     
 }

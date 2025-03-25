@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 function NuevoPedido() {
   const [fecha, setFecha] = useState("");
   const [productos, setProductos] = useState([]);
-  const [productoActual, setProductoActual] = useState({ nombre: "", cantidad: "", precio: 0, subtotal: 0 });
+  const [productoActual, setProductoActual] = useState({ nombre: "", cantidad: "", precio: null, subtotal: null });
   const navigate = useNavigate();
   const [exito, setExito] = useState(false);
 
@@ -24,7 +24,7 @@ function NuevoPedido() {
   function agregarProducto() {
     if (productoActual.nombre && productoActual.cantidad && productoActual.precio) {
       setProductos([...productos, productoActual]);
-      setProductoActual({ nombre: "", cantidad: "", precio: 0,  subtotal: 0 }); // Reiniciar el formulario del producto
+      setProductoActual({ nombre: "", cantidad: "", precio: null,  subtotal: 0 }); // Reiniciar el formulario del producto
     }
   }
 
@@ -58,15 +58,15 @@ function NuevoPedido() {
         <h2>Agregar productos</h2>
         <div>
           <label>Producto</label>
-          <input type="text" name="nombre" onChange={changeProducto} value={productoActual.nombre} />
+          <input placeholder="Producto" type="text" name="nombre" onChange={changeProducto} value={productoActual.nombre} />
         </div>
         <div>
           <label>Cantidad x Kg o x bolsa</label>
-          <input type="number" name="cantidad" onChange={changeProducto} value={productoActual.cantidad} />
+          <input placeholder="Cantidad x kg o bolsa" type="number" name="cantidad" onChange={changeProducto} value={productoActual.cantidad} />
         </div>
         <div>
           <label>Precio x Kg o x bolsa</label>
-          <input type="number" name="precio" onChange={changeProducto} value={productoActual.precio} />
+          <input placeholder="Precio" type="number" name="precio" onChange={changeProducto} value={productoActual.precio ?? ""} />
         </div>
         <button type="button" onClick={agregarProducto}>Añadir Producto</button>
         <button type="submit">Guardar Pedido</button>

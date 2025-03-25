@@ -900,7 +900,7 @@ nav a i {
     }
 
     .main-open {
-        width: 95vw;
+        width: 93vw;
     }
 
     .nav-open a span {
@@ -1106,7 +1106,7 @@ nav a i {
     }
 
     .tabla-lista tbody tr {
-        background-color: rgb(241, 241, 241);
+        background-color: #efeded;
         border-radius: 10px;
     }
 
@@ -1122,6 +1122,11 @@ nav a i {
         font-size: 1.3em;
         border-radius: 10px;
         text-align: center;padding: 15px;
+    }
+
+    .tabla-lista .fecha {
+        background-color: #f3f3f3;
+        border-radius: 10px 10px 0 0;
     }
     
 }

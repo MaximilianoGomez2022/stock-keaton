@@ -1184,6 +1184,14 @@ nav a i {
         border: 2px solid #ececec !important;
         height: 55px;
     }
+
+    .section-eliminar {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: calc(100vh - 180px);
+        padding-top: 0em;
+    }
     
 }
 

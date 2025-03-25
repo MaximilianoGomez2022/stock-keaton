@@ -954,11 +954,11 @@ nav a i {
     }
 
     .section-agregar h3 {
-        margin-bottom: 40px;
+        margin-bottom: 20px;
     }
 
     .section-agregar .ticket .total {
-        margin-top: 3em;
+        margin-top: .5em;
     }
 
     form {
@@ -1138,6 +1138,11 @@ nav a i {
         border: 0px;
     }
 
+    .form-editar-perfil {
+        background-color: #fff;
+        border: 0px;
+    }
+
     .form-agregar input {
         margin-bottom: 0px !important;
         border-radius: 7px !important;
@@ -1150,6 +1155,14 @@ nav a i {
 
     .div-ticket {
         display: block;
+    }
+
+    .section-editar-perfil form:last-child label{
+        display: none;
+    }
+
+    .section-editar-perfil form:last-child h2{
+        margin-bottom: 20px;
     }
     
 }

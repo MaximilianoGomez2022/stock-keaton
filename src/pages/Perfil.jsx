@@ -71,13 +71,14 @@ function Perfil(){
             <button className='btn btn-dark w-100'>Editar Perfil</button>            
         </form>
         <form onSubmit={onSubmitContraseña} className='form-editar-perfil'>
+        <h2>EDITAR CONTRASEÑA</h2>
         <div className='mb-3'>
             <label className="form-label">Ingresa contraseña actual</label>
-            <input className="form-control" type="password" name='actual' onChange={changeActual} value={actual}/>
+            <input placeholder='Ingresa contraseña actual' className="form-control" type="password" name='actual' onChange={changeActual} value={actual}/>
         </div>
         <div className='mb-3'>
             <label className="form-label">Nueva</label>
-            <input className="form-control" type="password" name='nueva' onChange={changeNueva} value={nuevaPassword}/>
+            <input placeholder='Nueva contraseña' className="form-control" type="password" name='nueva' onChange={changeNueva} value={nuevaPassword}/>
         </div>
         <button className='btn btn-dark w-100'>Editar Contrseña</button>
         </form>

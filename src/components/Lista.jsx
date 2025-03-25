@@ -7,6 +7,12 @@ function Lista () {
 
     const [productos, setProductos] = useState([])
 
+    function formatearFecha(fechaString) {
+        const [year, month, day] = fechaString.split("-");
+        return `${day}/${month}/${year}`;
+    }
+    
+
     useEffect(()=>{
         PedidosServices.traerPedidos()
         .then(data => {
@@ -37,7 +43,7 @@ function Lista () {
             productos.map(({ _id, fecha}) => (
                 <tr key={_id}>
                     <Link to={`/pedido/${_id}/ver`}>
-                    <td data-label="Fecha" className="fecha">{fecha}</td>
+                    <td data-label="Fecha" className="fecha">{formatearFecha(fecha)}</td>
                     <td className="acciones">
                     <div>
                     <Link to={`/pedido/${_id}/ver`}>

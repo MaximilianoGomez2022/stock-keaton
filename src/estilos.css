@@ -1141,7 +1141,7 @@ nav a i {
     .form-agregar input {
         margin-bottom: 0px !important;
         border-radius: 7px !important;
-        border: 4px solid #ececec !important;
+        border: 1px solid #ececec !important;
     }
 
     form button {

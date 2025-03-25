@@ -1143,6 +1143,10 @@ nav a i {
         border-radius: 7px !important;
         border: 4px solid #ececec !important;
     }
+
+    form button {
+        font-size: 18px;
+    }
     
 }
 

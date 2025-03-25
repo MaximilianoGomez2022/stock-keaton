@@ -1141,11 +1141,15 @@ nav a i {
     .form-agregar input {
         margin-bottom: 0px !important;
         border-radius: 7px !important;
-        border: 1px solid #ececec !important;
+        border: 2px solid #ececec !important;
     }
 
     form button {
         font-size: 18px;
+    }
+
+    .div-ticket {
+        display: block;
     }
     
 }

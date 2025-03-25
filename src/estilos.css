@@ -292,6 +292,12 @@ table {
     margin-bottom: 10px;
 }
 
+.tabla-lista tbody a {
+    display: contents;
+    text-decoration: none;
+    color: #1e1e1e;
+}
+
 /* +++++++++++++++++ AGREGAR ++++++++++++++++++*/
 
 .section-agregar {
@@ -1055,7 +1061,7 @@ nav a i {
     }
 
     .success, .error {
-        top: 0px;
+        top: 20px;
     }
 
     form input {

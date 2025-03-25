@@ -1149,8 +1149,14 @@ nav a i {
         border: 2px solid #ececec !important;
     }
 
+    .form-editar-perfil input {
+        margin-bottom: 20px !important;
+        border-radius: 7px !important;
+        border: 2px solid #ececec !important;
+    }
+
     form button {
-        font-size: 18px;
+        font-size: 18px !important;
     }
 
     .div-ticket {

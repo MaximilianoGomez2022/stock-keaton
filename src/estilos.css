@@ -1153,6 +1153,7 @@ nav a i {
         margin-bottom: 20px !important;
         border-radius: 7px !important;
         border: 2px solid #ececec !important;
+        height: 55px;
     }
 
     form button {

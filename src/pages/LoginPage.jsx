@@ -29,7 +29,13 @@ function LoginPage({onLogin}){
         })
         .catch(error => {
             console.error("Error en login:", error);
-            setError(error.errors || "Error al iniciar sesión");
+
+            // Asegúrate de manejar los errores como array
+            const errorMessage = Array.isArray(error.errors)
+                ? error.errors
+                : [error.message || "Error al iniciar sesión"];
+
+            setError(errorMessage);
             setErrorTrue(true);
         });
     }

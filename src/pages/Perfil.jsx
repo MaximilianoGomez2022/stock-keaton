@@ -50,18 +50,28 @@ function Perfil(){
 
     function onSubmitContraseña(e) {
         e.preventDefault()
+        setError(false)
         UsersServices.editContraseña(id, {actual, nuevaPassword})
         .then((data) => {
-            console.log(data)
-            alert(data.message)
+            if (data.message === "La contraseña actual es incorrecta") {
+                console.log(data.message)
+                setError(true)
+                return;
+            }
+            console.log(data.message)
+            navigate("/", { state: { setEditContraseña: true } });
         })
+        .catch((error) => {
+            console.error("Error al cambiar la contraseña:", error);
+            alert("❌ Hubo un problema al actualizar la contraseña. Inténtalo de nuevo.");
+        });
     }
 
     console.log(user)
 
     return (
     <div className='section-editar-perfil'>
-    {error && <><Error mensaje={"Los passwords no coinciden"}></Error></>}
+    {error && <><Error mensaje={"La contraseña actual ingresada en incorrecta."}></Error></>}
         <h1>EDITAR PERFIL</h1> 
         <form onSubmit={onSubmit} className='form-editar-perfil'>
         <div className='mb-3'>
@@ -77,7 +87,7 @@ function Perfil(){
             <input placeholder='Ingresa contraseña actual' className="form-control" type="password" name='actual' onChange={changeActual} value={actual}/>
         </div>
         <div className='mb-3'>
-            <label className="form-label">Nueva</label>
+            <label className="form-label">Nueva contraseña</label>
             <input placeholder='Nueva contraseña' className="form-control" type="password" name='nueva' onChange={changeNueva} value={nuevaPassword}/>
         </div>
         <button className='btn btn-dark w-100'>Editar Contraseña</button>

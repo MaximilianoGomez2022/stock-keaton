@@ -48,19 +48,19 @@ function Lista () {
                     <div>
                     <Link to={`/pedido/${_id}/ver`}>
                         <img src="/img/external-link.svg" alt="Editar" />
-                        Ver
+                        <p>Ver</p>
                     </Link>
                     </div>
                     <div>
                     <Link to={`/pedido/${_id}/edit`}>
                         <img src="/img/editar.svg" alt="Editar" />
-                        Editar
+                        <p>Editar</p>
                     </Link>
                     </div>
                     <div>
                     <Link to={`/pedido/${_id}/delete`}>
                         <img src="/img/eliminar.svg" alt="Eliminar" />
-                        Eliminar
+                        <p>Eliminar</p>
                     </Link>
                     </div>
                     </td>

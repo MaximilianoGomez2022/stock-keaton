@@ -39,6 +39,7 @@ function HomePage() {
             {location.state?.setDelete &&<><Success mensaje={"Eliminaste tu pedido."}/></>}
             {location.state?.setEdit &&<><Success mensaje={"Editaste tu pedido."}/></>}
             {location.state?.setEditPerfil &&<><Success mensaje={"Editaste tu perfil."}/></>}
+            {location.state?.setEditContraseña &&<><Success mensaje={"Editaste tu contraseña."}/></>}
             <div className="bienvenida">
             <div className="inicio-sesion">
             <h1>LISTA DE PEDIDOS</h1>

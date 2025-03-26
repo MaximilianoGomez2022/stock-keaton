@@ -249,6 +249,10 @@ tfoot td {
     align-items: center;
 }
 
+.acciones p {
+    display: inline;
+}
+
 .acciones img {
     width: 25px;
     margin-right: 10px;
@@ -270,6 +274,7 @@ tfoot td {
 .acciones a {
     text-decoration: none;
     color: #1e1e1e;
+    display: block !important;
 }
 
 .section-tabla {
@@ -561,6 +566,7 @@ footer {
 .success p {
     color: #ffffff;
     font-weight: 800;
+    text-align: right;
 }
 
 .error {
@@ -585,7 +591,8 @@ footer {
 }
 
 .error p {
-    color: #fff;
+    color: #ffffff;
+    font-weight: 800;
 }
 
 .errores-login p {
@@ -1061,7 +1068,10 @@ nav a i {
     }
 
     .success, .error {
-        top: 20px;
+        top: 30px;
+        float: right;
+        text-align: right;
+        justify-content: end;
     }
 
     form input {

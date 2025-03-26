@@ -37,8 +37,7 @@ function NuevoPedido() {
     PedidosServices.create(nuevoPedido)
       .then(() => {
         console.log("Pedido agregado");
-        setExito(true);
-        navigate("/"); // Redirigir a la home
+        navigate("/", { state: { setExito : true } })
       })
       .catch((error) => {
         console.error("Error al agregar el pedido:", error);

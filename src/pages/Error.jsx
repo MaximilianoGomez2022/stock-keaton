@@ -6,7 +6,7 @@ function Error({mensaje}) {
     useEffect(() => {
         const timer = setTimeout(() => {
           setIsVisible(false);
-        }, 5000); // Desaparecerá después de 3 segundos
+        }, 155000); // Desaparecerá después de 3 segundos
     
         return () => {
           clearTimeout(timer);
